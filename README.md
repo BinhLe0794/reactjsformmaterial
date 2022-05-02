@@ -25,19 +25,19 @@ YUP
 
 REDUX TOOLKIT
 
-#### CART FEATURE
+# CART FEATURE
 
-# GLOBAL STATE
+### GLOBAL STATE
 
 1. showMiniCart : boolean
 2. cartItems => [product ,quantity];
 
-# LOCAL STATE
+### LOCAL STATE
 
 1. cartItemCount
 2. cartTotal --> createSelector();
 
-# ACTIONS FROM REDUX
+### ACTIONS FROM REDUX
 
 1. From Detail Page -> add_btn => add product into GLOBAL STATE
 2. From Detail Page -> cartItems.product ? +quantity : addNEW
