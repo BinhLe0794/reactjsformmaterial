@@ -35,7 +35,7 @@ REDUX TOOLKIT
 ### LOCAL STATE
 
 1. cartItemCount
-2. cartTotal --> createSelector();
+2. cartTotal --> createSelector(); // using library [reselect]
 
 ### ACTIONS FROM REDUX
 
@@ -43,3 +43,9 @@ REDUX TOOLKIT
 2. From Detail Page -> cartItems.product ? +quantity : addNEW
 3. From Cart Page -> Adjust the quantity from GLOBAL STATE directly
 4. From Cart Page -> Remove the product from GLOBAL STATE directly
+
+### VIEW
+
+1. Using [reselect] to take cartItemsCount and total
+
+2. Using hook useSelector(cartItemsCountSelector) => render View

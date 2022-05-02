@@ -1,4 +1,4 @@
-import { unwrapResult } from "@reduxjs/toolkit";
+// import { unwrapResult } from "@reduxjs/toolkit";
 import { register } from "features/Auth/userSlice";
 import { useSnackbar } from "notistack";
 import PropTypes from "prop-types";
@@ -13,12 +13,13 @@ function Register(props) {
     try {
       values.username = values.email;
 
-      console.log("Form submit", values);
+      console.log("Form submit Value", values);
 
       const action = register(values);
-      const resultAction = await dispatch(action);
+      dispatch(action);
 
-      const user = unwrapResult(resultAction);
+      // const resultAction = await dispatch(action);
+      // const user = unwrapResult(resultAction);
 
       enqueueSnackbar("Register Successfully ", { variant: "success" });
 

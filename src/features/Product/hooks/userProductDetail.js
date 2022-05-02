@@ -22,7 +22,7 @@ export default function useProductDetail(productId) {
       }
     };
     fetchApiProduct();
-  }, [productId]);
+  }, [navigate, productId]);
 
   return { product, loading };
 }

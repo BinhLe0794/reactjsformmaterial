@@ -25,7 +25,7 @@ function QuantityField(props) {
       margin="normal"
       variant="outlined"
       error={hasError}>
-      <Typography>{label}</Typography>
+      <Typography pl={1}>{label}</Typography>
       <Controller
         name={name}
         control={form.control}

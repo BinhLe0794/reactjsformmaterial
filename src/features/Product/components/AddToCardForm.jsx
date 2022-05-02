@@ -13,6 +13,7 @@ const AddToCardForm = ({ onSubmit = null }) => {
       quantity: yup
         .number()
         .min(1, "Please enter at least 1")
+        .max(50, "Maximum 50")
         .required("Please enter the quantity")
         .typeError("Please enter a number"),
     })

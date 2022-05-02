@@ -1,7 +1,9 @@
 import { AccountCircleRounded, Close } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import {
   AppBar,
+  Badge,
   Box,
   Button,
   Dialog,
@@ -14,12 +16,13 @@ import {
 } from "@mui/material";
 import Login from "features/Auth/components/Login/Login";
 import { logout } from "features/Auth/userSlice";
+import { cartItemsCountSelector } from "features/Cart/selectors";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import Register from "../../../features/Auth/components/Register/Register";
 import "./Header.scss";
 import logo from "./logo.svg";
-
 const MODE = {
   LOGIN: "login",
   REGISTER: "register",
@@ -27,13 +30,15 @@ const MODE = {
 
 export default function Header() {
   const [open, setOpen] = useState(false); // dialog control
-  //get from redux
+  //LOGIN FEATURE
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser.id; // transfer to boolean
 
   const [mode, setMode] = useState(MODE.LOGIN);
   const [anchorEl, setAnchorEl] = useState(null); // not close dialog
-
+  // CART FEATURE
+  const cartItemsCount = useSelector(cartItemsCountSelector);
+  //
   const dispatch = useDispatch();
 
   const handleLoginDialog = () => {
@@ -74,7 +79,16 @@ export default function Header() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               React JS System
             </Typography>
+            {/* CART FUNCTION */}
+            <Link to="/cart">
+              <IconButton size="large" aria-label="show 17 new notifications">
+                <Badge badgeContent={cartItemsCount} color="error">
+                  <ShoppingCartOutlinedIcon />
+                </Badge>
+              </IconButton>
+            </Link>
 
+            {/* LOGIN FUNCTION */}
             {!isLoggedIn && (
               <Button color="inherit" onClick={handleLoginDialog}>
                 Login
